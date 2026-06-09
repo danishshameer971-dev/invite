@@ -1,0 +1,2434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shanshan &amp; Nada — Wedding Invitation</title>
+  <link rel="icon" href="asset/seal.png" type="image/png">
+
+  <!-- ─── EXACT FONTS FROM LIVE SITE ─────────────────────────────────── -->
+  <style>
+    @font-face{font-family:'Cormorant';font-style:italic;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/cormorant/v24/H4cjBXOCl9bbnla_nHIq6qu_oqM.woff2)format('woff2')}
+    @font-face{font-family:'Cormorant';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/cormorant/v24/H4clBXOCl9bbnla_nHIq75u9.woff2)format('woff2')}
+    @font-face{font-family:'Cormorant';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/cormorant/v24/H4clBXOCl9bbnla_nHIq75u9.woff2)format('woff2')}
+    @font-face{font-family:'Cormorant Infant';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/cormorantinfant/v22/HhyCU44g9vKiM1sORYSiWeAsLN99xfs9KOOc_agJPrgvYNWUjjg.woff2)format('woff2')}
+    @font-face{font-family:'Cormorant Upright';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/cormorantupright/v19/VuJrdM3I2Y35poFONtLdafkUCHw1y1vShDU.woff2)format('woff2')}
+    @font-face{font-family:'Cormorant Upright';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/cormorantupright/v19/VuJudM3I2Y35poFONtLdafkUCHw1y1MhpyDrWdQ.woff2)format('woff2')}
+    @font-face{font-family:'Aboreto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/aboreto/v2/5DCXAKLhwDDQ4N8bpKPUAg.woff2)format('woff2')}
+    @font-face{font-family:'Manrope';font-style:normal;font-weight:400 800;font-display:swap;src:url(https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSg.woff2)format('woff2')}
+    @font-face{font-family:'Yaldevi';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/yaldevi/v17/cY9afj6VW0NMrDWtDNzCOwlPMq9SLpdxJwvvZRM.woff2)format('woff2')}
+    @font-face{font-family:'Gotu';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/gotu/v18/o-0FIpksx3QOpHoBiw.woff2)format('woff2')}
+  </style>
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════
+       RESET + ROOT VARS (exact colours from live site source)
+    ═══════════════════════════════════════════════════════════════════ */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    img{max-width:100%;height:auto;display:block}
+    :root{
+      --cream:   rgb(253, 250, 250);
+      --sage:    rgb(69,160,134);
+      --lavender:rgb(230,211,255);
+      --olive:   rgb(105,107,54);
+      --orange:  rgb(231,147,0);
+      --peach:   rgb(251,237,226);
+      --yg:      rgb(220,221,166);    /* yellow-green "See the route" */
+      --r39:     38.81px;             /* Framer's radius constant */
+      --r158:    158.24px;            /* event card radius */
+    }
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;width:100%}
+    body{font-family:'Manrope',sans-serif;background:#fff;color:var(--cream);margin:0;padding:0;width:100%;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+
+    /* ═══════════════════════════════════════════════════════════════════
+       FLOATING UI: BUY BUTTON + MUSIC TOGGLE
+    ═══════════════════════════════════════════════════════════════════ */
+    #buy-btn{
+      position:fixed;top:16px;right:20px;z-index:9999;
+      display:flex;align-items:center;gap:10px;
+      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+      background:rgba(255,255,255,0.73);
+      border:1px solid rgb(34,34,34);border-radius:var(--r39);
+      padding:6px 12px 6px 16px;
+      font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;
+      letter-spacing:-0.02em;color:rgb(34,34,34);cursor:pointer;
+      transition:opacity .2s
+    }
+    #buy-btn span.price{
+      background:#b6b2b2;color:#fff;border-radius:90px;
+      padding:8px 16px;font-size:13px;font-weight:600
+    }
+    #music-btn{
+      position:fixed;top:16px;left:20px;z-index:9999;
+      width:44px;height:44px;border-radius:20px;border:none;cursor:pointer;
+      background:rgb(207,47,42);display:flex;align-items:center;justify-content:center;
+      padding:10px;transition:transform .2s
+    }
+    #music-btn:hover{transform:scale(1.08)}
+    #music-btn svg{width:16px;height:16px}
+    #bgm{display:none}
+
+    /* ═══════════════════════════════════════════════════════════════════
+       SECTION 1 — Dark hero with lanterns + names + invite + events
+    ═══════════════════════════════════════════════════════════════════ */
+    .s1{
+      position:relative;
+      background:#0e0e08;
+      min-height:100vh;
+      margin:0;
+      padding:0
+    }
+    /* Hero stage — full-screen cinematic hero */
+    .hero-stage,
+    .hero-section{
+      position:relative;
+      width:100%;
+      height:100vh;
+      min-height:100svh;
+      margin:0;
+      padding:0;
+      overflow:hidden
+    }
+    /* Invite + events section — overlaps hero by 60px (into the fully-opaque
+       bottom of the fog fade); padding-top compensates so text doesn't shift. */
+    .invite-section{
+      position:relative;
+      z-index:2;
+      background:#0e0e08;
+      margin-top:-60px;
+      padding-top:140px
+    }
+    /* Dark gradient background — replaces sky photo */
+    .s1-sky{
+      position:absolute;top:0;left:0;right:0;bottom:0;
+      background:linear-gradient(180deg,#1a1408 0%,#0e0e08 55%,#0a0c0a 100%);
+      pointer-events:none;z-index:0
+    }
+
+    /* ══ LAYER 1 — Background ══════════════════════════════════════
+       Full-viewport image with cover scaling and centered framing.
+       The hero remains exactly one screen tall with no bottom gap.
+       Depth effect comes from the flower layers above the image.
+    ═══════════════════════════════════════════════════════════════ */
+    /* ── Slow cinematic zoom on hero image ─────────────────────────
+       Keyframe starts at --hero-scale (base) and adds 0.07 on top.
+       translate3d(0,0,0) in both frames keeps the element on its own
+       GPU compositor layer throughout the entire animation.
+       The wrapper (.hero-bg-photo) gets will-change so the browser
+       promotes it to a layer for the JS parallax translateY below.
+    ─────────────────────────────────────────────────────────────── */
+    @keyframes heroZoom{
+      from{ transform:translate3d(0,0,0) scale(var(--hero-scale)) }
+      to  { transform:translate3d(0,0,0) scale(calc(var(--hero-scale) + 0.07)) }
+    }
+    .hero-bg-photo{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      z-index:1;
+      --hero-focus-y:50%;
+      --hero-scale:1;
+      /* GPU layer for JS parallax translate */
+      will-change:transform;
+      backface-visibility:hidden;
+      transform:translate3d(0,0,0)
+    }
+    .hero-bg-photo img,
+    .hero-image{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center var(--hero-focus-y);
+      display:block;
+      transform-origin:center center;
+      animation:heroZoom 22s ease-in-out infinite alternate;
+      will-change:transform;
+      backface-visibility:hidden
+    }
+    /* Respect user preference — no motion, no zoom */
+    @media(prefers-reduced-motion:reduce){
+      .hero-image{
+        animation:none;
+        transform:translate3d(0,0,0) scale(var(--hero-scale))
+      }
+    }
+    .hero-bg-overlay,
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      z-index:2;
+      pointer-events:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,
+        rgba(0,0,0,.36) 0%,
+        rgba(0,0,0,.12) 34%,
+        rgba(0,0,0,.06) 62%,
+        rgba(0,0,0,.22) 100%)
+    }
+
+    /* ══ HERO FOG FADE — natural cloudy dissolve ════════════════════
+       Two tall, soft layers create depth without looking like a band.
+
+       ::before  Atmospheric blur — 360px tall, only 8px blur.
+                 Kept whisper-soft so it reads as haze, not a filter.
+                 Mask eases in very slowly: imperceptible mist at top,
+                 present presence at mid, settled at the base.
+
+       ::after   Cream dissolution — 420px tall.
+                 Seven-stop gradient that mimics real fog: almost
+                 nothing for the top 40%, then a slow organic thickening
+                 through the middle, arriving at solid cream at the base.
+                 Colour is #fffdf8 — exact cream of invite-section.
+
+       Flowers (z-index 3) sit below both layers so they sink into
+       the fog as they float toward the bottom of the hero.
+    ════════════════════════════════════════════════════════════════ */
+    .hero-stage::before{
+      content:"";
+      position:absolute;
+      bottom:0;left:0;
+      width:100%;
+      height:360px;
+      z-index:4;
+      pointer-events:none;
+      /* soft atmospheric blur — 8px feels like haze, not a rectangle */
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      /* mask: nearly invisible for first 30%, then gently builds */
+      -webkit-mask-image:linear-gradient(
+        to bottom,
+        transparent        0%,
+        rgba(0,0,0,0.04)  28%,
+        rgba(0,0,0,0.22)  55%,
+        rgba(0,0,0,0.65)  78%,
+        black             100%
+      );
+      mask-image:linear-gradient(
+        to bottom,
+        transparent        0%,
+        rgba(0,0,0,0.04)  28%,
+        rgba(0,0,0,0.22)  55%,
+        rgba(0,0,0,0.65)  78%,
+        black             100%
+      );
+      background:rgba(255,253,248,0.06)
+    }
+    .hero-stage::after{
+      content:"";
+      position:absolute;
+      bottom:0;left:0;
+      width:100%;
+      height:420px;
+      z-index:5;
+      pointer-events:none;
+      background:#fffdf8;
+      /* seven-stop organic fog curve:
+         clear sky → imperceptible mist → haze → fog → solid */
+      -webkit-mask-image:linear-gradient(
+        to bottom,
+        rgba(0,0,0,0)    0%,
+        rgba(0,0,0,0.02) 22%,
+        rgba(0,0,0,0.07) 38%,
+        rgba(0,0,0,0.20) 54%,
+        rgba(0,0,0,0.50) 70%,
+        rgba(0,0,0,0.82) 85%,
+        rgba(0,0,0,1)   100%
+      );
+      mask-image:linear-gradient(
+        to bottom,
+        rgba(0,0,0,0)    0%,
+        rgba(0,0,0,0.02) 22%,
+        rgba(0,0,0,0.07) 38%,
+        rgba(0,0,0,0.20) 54%,
+        rgba(0,0,0,0.50) 70%,
+        rgba(0,0,0,0.82) 85%,
+        rgba(0,0,0,1)   100%
+      )
+    }
+    @media(max-width:768px){
+      .hero-stage::after{ height:300px }
+      .hero-stage::before{
+        height:240px;
+        backdrop-filter:blur(6px);
+        -webkit-backdrop-filter:blur(6px)
+      }
+    }
+
+    /* ══ LAYER 3 — Floating flowers (apparent speed: 0.5–0.8×) ═════
+       JS translates flowers DOWN at data-speed × scroll.
+       speed 0.2 → apparent 0.8×   (near surface, fastest flowers)
+       speed 0.5 → apparent 0.5×   (deeper flowers, near bg speed)
+       Float animation runs on inner .petal-float so the two
+       transforms never clash.
+    ═══════════════════════════════════════════════════════════════ */
+    @keyframes float-gentle{
+      0%   { transform:translateY(0px)   rotate(var(--br,0deg)); }
+      18%  { transform:translateY(-14px) rotate(calc(var(--br,0deg) + 4deg)); }
+      42%  { transform:translateY(-24px) rotate(calc(var(--br,0deg) - 3deg)); }
+      65%  { transform:translateY(-10px) rotate(calc(var(--br,0deg) + 5deg)); }
+      82%  { transform:translateY(-20px) rotate(calc(var(--br,0deg) - 2deg)); }
+      100% { transform:translateY(0px)   rotate(var(--br,0deg)); }
+    }
+    .petal-wrap{
+      position:absolute;pointer-events:none;z-index:3;
+      will-change:transform,opacity;
+      transform:translate3d(0,0,0);
+      transition:opacity 0.4s ease
+    }
+    .petal-float{
+      will-change:transform;
+      animation:float-gentle var(--fd,8s) ease-in-out infinite;
+      animation-delay:var(--fdel,0s)
+    }
+    .petal-float img{
+      display:block;width:100%;
+      filter:drop-shadow(0 8px 24px rgba(0,0,0,.45))
+    }
+
+    /* Mobile — auto-scaled via vw units in inline styles already */
+    @media(max-width:480px){
+      .petal-float img{ filter:drop-shadow(0 4px 14px rgba(0,0,0,.4)) }
+    }
+
+    /* ── Spin-only flowers (no scroll movement, just rotate) ──── */
+    @keyframes spin-slow{
+      0%  { transform:rotate(0deg)   scale(1); }
+      25% { transform:rotate(90deg)  scale(1.06); }
+      50% { transform:rotate(180deg) scale(1); }
+      75% { transform:rotate(270deg) scale(1.05); }
+      100%{ transform:rotate(360deg) scale(1); }
+    }
+    .petal-spin{
+      will-change:transform;
+      animation:spin-slow var(--fd,12s) ease-in-out infinite;
+      animation-delay:var(--fdel,0s)
+    }
+    .petal-spin img{
+      display:block;width:100%;
+      filter:drop-shadow(0 6px 16px rgba(0,0,0,.35))
+    }
+
+    /* ── Invite section — white theme ───────────────────────────
+       Override CSS vars so all var(--cream) text reads dark.
+    ────────────────────────────────────────────────────────── */
+    .invite-section{
+      background:#fffdf8;
+      --cream:    #2a1a08;
+      --yg:       #6a7020;
+      --lavender: #6c45b8
+    }
+    .invite-section .cta-ring-btn .outer-ring{ border-color:#8b7355 }
+    .invite-section .cta-ring-btn .inner-dot { border-color:#8b7355 }
+    .invite-section .loc-sub{ color:#6e5c3a }
+
+    /* ── Responsive fixes ───────────────────────────────────── */
+    section{ padding:80px 20px }
+    @media(max-width:600px){
+      section{ padding:60px 16px }
+      .invite{ padding:0 16px 60px }
+      .events-wrap{ padding:0 8px }
+      .location-cta{ padding:40px 16px 60px }
+      .hero-name{ line-height:1 }
+      .things-section{ padding:80px 16px 0 }
+    }
+    @media(min-width:481px) and (max-width:809px){
+      .events-wrap{ max-width:680px }
+      .things-section{ padding:100px 24px 0 }
+    }
+
+    /* ══ FALLING PETALS ══════════════════════════════════════════════
+       position:fixed so petals fall across the full page while scrolling.
+       --drift  : random horizontal slide
+       --spin   : random total rotation
+    ═══════════════════════════════════════════════════════════════ */
+    .petal-container{
+      position:fixed;top:0;left:0;
+      width:100%;height:100%;
+      pointer-events:none;z-index:50;
+      overflow:hidden
+    }
+    .petal{
+      position:absolute;
+      pointer-events:none;
+      will-change:transform,opacity;
+      height:auto
+    }
+    @keyframes petal-fall{
+      0%  { transform:translateY(-100px) translateX(0)                    rotate(0deg);   opacity:0   }
+      8%  { opacity:.9 }
+      88% { opacity:.75 }
+      100%{ transform:translateY(108vh)  translateX(var(--drift,0px))     rotate(var(--spin,360deg)); opacity:0 }
+    }
+
+
+    /* ── Hero names ──────────────────────────────────────────────── */
+    .hero-names{
+      position:absolute;z-index:10;
+      top:50%;left:0;right:0;
+      transform:translateY(-50%);
+      display:flex;flex-direction:column;align-items:center;
+      text-align:center;
+      width:min(100%,820px);
+      margin:0 auto;
+      padding:0 28px;
+      pointer-events:none
+    }
+    .hero-name{
+      font-family:'Cormorant','Cormorant Placeholder',serif;
+      font-weight:400;
+      font-size:clamp(51px,15vw,100px);
+      line-height:60px;
+      letter-spacing:-0.01em;
+      text-transform:uppercase;
+      color:var(--cream);
+      will-change:transform;opacity:0
+    }
+    .hero-weds{
+      font-family:'Cormorant',serif;font-weight:400;
+      font-size:25px;letter-spacing:0.42em;line-height:27px;
+      color:var(--cream);margin:8px 0;opacity:0;will-change:transform
+    }
+
+    /* ── Hero photo ─────────────────────────────────────────────── */
+    .hero-photo{
+      position:relative;z-index:10;
+      display:flex;justify-content:center;
+      margin-top:32px;margin-bottom:0;
+    }
+    .hero-photo img{
+      width:min(260px,68vw);
+      aspect-ratio:3/4;
+      object-fit:cover;
+      border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+      border:3px solid rgba(243,236,186,0.45);
+      box-shadow:0 8px 40px rgba(0,0,0,.55);
+    }
+
+    /* ── Invite block ───────────────────────────────────────────── */
+    .invite{
+      position:relative;z-index:10;
+      display:flex;flex-direction:column;align-items:center;
+      width:100%;
+      max-width:760px;
+      margin:0 auto;
+      padding:0 20px 80px;
+      text-align:center
+    }
+    .bismillah-gotu{
+      font-family:'Gotu',sans-serif;font-size:18px;
+      line-height:160%;color:var(--cream);margin-top:60px;margin-bottom:10px;
+      letter-spacing:.04em
+    }
+    .invite-blessing{
+      font-family:'Cormorant Upright',serif;font-size:24px;
+      letter-spacing:0.01em;line-height:130%;color:var(--cream)
+    }
+    .invite-sep{
+      font-family:'Cormorant Upright',serif;font-size:22px;
+      letter-spacing:0.01em;line-height:150%;color:var(--cream);margin:4px 0
+    }
+    .invite-big{
+      font-family:'Cormorant Infant',serif;font-size:clamp(64px,20vw,96px);
+      line-height:120%;color:var(--cream);margin:32px 0 0;
+      letter-spacing:.06em
+    }
+    .invite-sub{
+      font-family:'Cormorant Upright',serif;font-size:22px;
+      letter-spacing:.01em;line-height:140%;color:var(--cream);
+      margin-bottom:8px
+    }
+    .invite-couple-name{
+      font-family:'Cormorant Upright',serif;font-size:clamp(58px,16vw,84px);
+      line-height:110%;color:var(--cream)
+    }
+    .invite-amp{
+      font-family:'Cormorant Upright',serif;font-size:clamp(48px,12vw,80px);
+      line-height:110%;color:var(--cream)
+    }
+    .invite-bride-name{
+      font-family:'Cormorant',serif;font-size:clamp(52px,15vw,84px);
+      line-height:70%;color:var(--cream);text-align:center
+    }
+    .invite-daughter{
+      font-family:'Cormorant Upright',serif;font-size:22px;
+      letter-spacing:.01em;line-height:130%;color:var(--cream);
+      margin-top:32px
+    }
+
+    /* ── Event Cards — Arch Layout ─────────────────────────────── */
+    .events-wrap{
+      position:relative;z-index:10;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      justify-items:center;
+      align-items:start;
+      gap:32px 24px;
+      padding:0 20px 60px;
+      width:100%;max-width:720px;margin:0 auto
+    }
+    .event-card{
+      display:flex;flex-direction:column;align-items:center;
+      width:100%;
+      max-width:300px;
+      gap:18px;
+      opacity:0;will-change:transform
+    }
+    /* Arch frame — overflow:hidden clips the photo to arch shape */
+    .arch-frame{
+      width:100%;
+      max-width:300px;
+      height:380px;
+      border-radius:150px 150px 28px 28px;
+      overflow:hidden;
+      position:relative;
+      background:#e6edc9;
+      box-shadow:0 8px 32px rgba(0,0,0,.35)
+    }
+    .arch-photo{
+      width:100%;
+      height:62%;
+      object-fit:cover;
+      display:block
+    }
+    .flower-overlay{
+      position:absolute;
+      bottom:-10px;
+      left:50%;
+      transform:translateX(-50%);
+      width:110px;
+      pointer-events:none;
+      filter:drop-shadow(0 4px 12px rgba(0,0,0,.25))
+    }
+    /* Text below arch */
+    .event-name-txt{
+      font-family:'Aboreto',sans-serif;font-size:26px;font-weight:700;
+      line-height:1.3;text-align:center;color:var(--cream);
+      letter-spacing:.04em
+    }
+    .event-details{
+      display:flex;flex-direction:column;align-items:center;gap:4px;
+      min-height:132px
+    }
+    .event-date-txt,.event-venue-txt,.event-time-txt{
+      font-family:'Cormorant',serif;font-size:19px;font-weight:600;
+      line-height:1.4;text-align:center;color:var(--cream)
+    }
+    .event-dress-txt{
+      font-family:'Yaldevi',sans-serif;
+      font-size:12px;
+      font-weight:600;
+      line-height:1.6;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      text-align:center;
+      color:#8b2232;
+      margin-top:6px
+    }
+    .event-tag-txt{
+      font-family:'Yaldevi',sans-serif;font-size:13px;font-weight:600;
+      color:var(--lavender);letter-spacing:.06em;text-transform:uppercase;
+      margin-top:-10px
+    }
+    .event-route{
+      font-family:'Cormorant',serif;font-size:13px;font-weight:700;
+      line-height:100%;text-align:center;color:var(--lavender)
+    }
+    .event-route a{color:var(--lavender)}
+    /* Mobile: single column */
+    @media(max-width:540px){
+      .events-wrap{ grid-template-columns:1fr; max-width:340px; gap:36px 0 }
+      .event-card{ max-width:320px }
+      .event-details{ min-height:auto }
+      .arch-frame{ height:340px }
+    }
+
+    /* ── Location CTA ───────────────────────────────────────────── */
+    .location-cta{
+      position:relative;z-index:10;
+      display:flex;flex-direction:column;align-items:center;
+      width:100%;
+      max-width:520px;
+      margin:0 auto;
+      padding:60px 20px 80px;text-align:center
+    }
+    .loc-title{
+      font-family:'Aboreto',sans-serif;font-size:clamp(38px,12vw,50px);
+      line-height:115.74%;color:var(--yg);margin-bottom:8px
+    }
+    .loc-sub{
+      font-family:'Yaldevi',sans-serif;font-size:20px;
+      text-align:center;color:rgb(218,220,163)
+    }
+    .cta-ring-btn{
+      display:inline-block;position:relative;width:99px;height:99px;
+      margin-top:32px;cursor:pointer;text-decoration:none
+    }
+    .cta-ring-btn .outer-ring{
+      position:absolute;inset:0;border-radius:50%;
+      border:2px solid var(--yg);
+      animation:spin-ring 4s linear infinite;
+      will-change:transform
+    }
+    .cta-ring-btn .inner-dot{
+      position:absolute;top:17px;bottom:16px;left:50%;
+      transform:translateX(-50%);
+      aspect-ratio:1;border-radius:50%;
+      border:9px solid var(--yg)
+    }
+    @keyframes spin-ring{to{transform:rotate(360deg)}}
+
+
+    /* ═══════════════════════════════════════════════════════════════════
+       SECTION 2 — Brick/warm texture — Meet the couple + RSVP
+    ═══════════════════════════════════════════════════════════════════ */
+    .s2{
+      position:relative;
+      min-height:400px;
+      overflow:hidden
+    }
+    .s2-bg{
+      position:absolute;inset:0;
+      background:url(https://framerusercontent.com/images/CxMq9eNVYFWeipRkOH7L6BF7EV4.png) center top / cover;
+      pointer-events:none
+    }
+    /* ══════════════════════════════════════════════════════════
+       SECTION 2 — ENVELOPE INVITATION
+    ══════════════════════════════════════════════════════════ */
+    /*.pink-section,
+    .journey-section{
+      position: relative;
+      width:100%;
+      min-height:100vh;
+      min-height:100svh; /* iOS: excludes browser chrome */
+      /*overflow: visible;
+      padding:clamp(40px,8vw,80px) 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      box-sizing:border-box;
+      text-align:center
+    }
+    /* Floating flower petals drifting up */
+   /* @keyframes floatFlower{
+      0%  { transform:translateY(0) rotate(0deg);   opacity:0 }
+      12% { opacity:.85 }
+      88% { opacity:.65 }
+      100%{ transform:translateY(-260px) rotate(20deg); opacity:0 }
+    }
+    .floating-flower,
+    .meet-float-flower{
+      position:absolute; bottom:8%;
+      max-width:60px;
+      pointer-events:none;
+      animation:floatFlower 6s ease-in-out infinite;
+      will-change:transform,opacity;
+      z-index:1;
+      opacity:0;
+      transition:opacity .6s ease
+    }
+
+    /* Section label */
+    /*.invite-subtitle,
+    .env-label{
+      font-family:'Aboreto',sans-serif;
+      font-size:clamp(12px,3vw,16px);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 14px;
+      position: relative; z-index: 3;
+      opacity: .85
+    }
+    .invite-title,
+    .env-title{
+      font-family:'Aboreto',sans-serif;
+      font-size:clamp(28px,6vw,48px);
+      letter-spacing:2px;
+      color: var(--peach);
+      margin-bottom: 60px;
+      max-width: 16ch;
+      position: relative; z-index: 3;
+      text-align: center
+    }
+
+    .invite-container,
+    .journey-section > .env-label,
+    .journey-section > .env-title,
+    .journey-section > .env-wrap,
+    .journey-section > .env-hint{
+      width:100%;
+      max-width:500px;
+      margin-inline:auto;
+      text-align:center
+    }
+
+    /* ── Envelope wrapper ── */
+    /*.env-wrap{
+      position: relative;
+      z-index: 3;
+      display: inline-block;
+      width:100%;
+      max-width:500px;
+      --env-size:min(85vw,420px);
+      cursor: pointer;
+      /* keep hint text close underneath */
+      /*margin-bottom:0
+    }
+
+    /* ── The envelope body ── */
+    /*.envelope{
+      position: relative;
+      width: var(--env-size);
+      height: clamp(175px, calc(var(--env-size) * .56), 240px);
+      margin-top:30px;
+      background: linear-gradient(160deg,#f7d7dc,#e7aab4);
+      border-radius: 8px;
+      box-shadow: 0 28px 70px rgba(112,24,42,.2), 0 8px 20px rgba(112,24,42,.12);
+      overflow: hidden;
+      /* envelope grows from rectangle → square when opened */
+      /*transition: height .85s cubic-bezier(.4,0,.2,1);
+    }
+    /* Side triangles (decorative inset fold lines) */
+    /*.envelope::before{
+      content:'';
+      position:absolute; inset:0;
+      background:
+        linear-gradient(135deg,#e5a0ad 0%,#e5a0ad 48%,transparent 50%),
+        linear-gradient(225deg,#e5a0ad 0%,#e5a0ad 48%,transparent 50%);
+      border-radius:8px;
+      pointer-events:none
+    }
+    /* Bottom triangle fold */
+    /*.envelope::after{
+      content:'';
+      position:absolute; bottom:0; left:0; right:0;
+      height:50%;
+      background:linear-gradient(to top,#d98797,transparent);
+      border-radius:0 0 8px 8px;
+      pointer-events:none
+    }
+
+    /* ── Top flap (folds open) ── */
+    /*.envelope-flap{
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:48%;
+      background:linear-gradient(170deg,#f1b4bf,#df8b98);
+      clip-path:polygon(0 0,100% 0,50% 82%);
+      transform-origin:top center;
+      /* perspective() inline — works correctly with overflow:hidden */
+      /*transform:perspective(900px) rotateX(0deg);
+      transition:transform .85s cubic-bezier(.4,0,.2,1);
+      z-index:3;
+      border-radius:8px 8px 0 0
+    }
+
+    /* ── Wax seal ── */
+    /*.seal{
+      position:absolute;
+      top:44%; left:50%;
+      transform:translate(-50%,-50%);
+      width:clamp(58px,9vw,78px);
+      aspect-ratio:2/3;
+      display:flex; align-items:center; justify-content:center;
+      overflow:visible;
+      box-shadow:0 12px 18px rgba(82,58,34,.18);
+      z-index:5;
+      transition:transform .4s cubic-bezier(.34,1.56,.64,1), opacity .35s ease;
+      will-change:transform
+    }
+    .seal img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block
+    }
+    /* Seal ring detail */
+    /*.seal::before{
+      content:none
+    }
+
+    /* ── Square invitation card — lives inside envelope, hidden below initially ── */
+    /*.env-card{
+      position:absolute;
+      bottom:0; left:0;
+      width:100%;
+      /* square: height = width of envelope */
+      /*height:var(--env-size);
+      background:linear-gradient(170deg,#fffaf9,#fff5f5);
+      border-radius:0;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      z-index:2;
+      /* start hidden below the envelope floor */
+      /*transform:translateY(100%);
+      transition:transform .85s cubic-bezier(.4,0,.2,1)
+    }
+    .couple-photo{
+      width:100%;
+      flex:1;           /* photo fills all space not taken by text */
+      /*min-height:0;
+      object-fit:cover;
+      object-position:top center; /* show face, not cropped */
+      /*display:block
+    }
+    .env-card-inner{
+      flex-shrink:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:clamp(10px,1.8vw,16px) clamp(12px,2vw,20px);
+      opacity:0;
+      transition:opacity .4s ease .55s
+    }
+
+    /* ── Flowers: hidden until envelope fully opens ── */
+    /*.journey-section.env-opened .meet-float-flower{
+      opacity:1;
+      transition:opacity .6s ease .85s
+    }
+    .env-divider{
+      width:40px; height:1.5px;
+      background:linear-gradient(90deg,transparent,#c47a7a,transparent);
+      margin:0 auto clamp(6px,1vw,10px)
+    }
+    .dua{
+      font-size:clamp(15px,2.3vw,22px);
+      line-height:1.55;
+      color:#6b3030;
+      direction:rtl;
+      font-family:'Cormorant Upright',serif;
+      margin-bottom:4px
+    }
+    .dua-tr{
+      font-family:'Cormorant Upright',serif;
+      font-style:italic;
+      font-size:clamp(30px,8vw,48px);
+      color:#9a5555;
+      line-height:1.5
+    }
+
+    /* ── Journey inner wrapper — max-width constraint ── */
+    /*.journey-inner{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      max-width:900px;
+      width:100%;
+      margin:0 auto;
+      position:relative;
+      z-index:3;
+      text-align:center
+    }
+
+    /* ── Hint text below envelope ── */
+    /*.env-hint{
+      margin-top:20px;
+      font-family:'Yaldevi',sans-serif;
+      font-size:clamp(12px,3vw,16px);
+      letter-spacing:.12em;
+      color:rgba(251,237,226,.7);
+      text-transform:uppercase;
+      position:relative;z-index:3;
+      animation:hintPulse 2.5s ease-in-out infinite
+    }
+    @keyframes hintPulse{
+      0%,100%{ opacity:.6 }
+      50%    { opacity:1  }
+    }
+
+    /* ── OPEN STATE — envelope grows to square, card slides up inside ── */
+    /*.env-wrap:hover .envelope-flap,
+    .env-wrap.open  .envelope-flap{
+      transform:perspective(900px) rotateX(-170deg)
+    }
+    .env-wrap:hover .seal,
+    .env-wrap.open  .seal{
+      transform:translate(-50%,-50%) scale(.75) rotate(-14deg);
+      opacity:0
+    }
+    /* Envelope grows from rect to square */
+    /*.env-wrap:hover .envelope,
+    .env-wrap.open  .envelope{
+      height:var(--env-size)
+    }
+    /* Card slides up into the now-square envelope */
+    /*.env-wrap:hover .env-card,
+    .env-wrap.open  .env-card{
+      transform:translateY(0)
+    }
+    .env-wrap:hover .env-card-inner,
+    .env-wrap.open  .env-card-inner{
+      opacity:1
+    }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    /*@media(max-width:600px){
+      .journey-section{ padding:60px 18px }
+      .env-hint{ margin-top:14px }
+    }
+    @media(max-width:480px){
+      /* Envelope fills more of narrow screens */
+      /*.env-wrap{ --env-size:min(92vw,380px) }
+      /* Tighten title-to-envelope gap */
+      /*.env-title{ margin-bottom:20px }
+      /* Hint sits right under the envelope */
+      /*.env-hint{ margin-top:12px }
+      /* Hide the two flowers whose paths cross the envelope center:
+         left:20% (nth-child 3) and left:50% (nth-child 6).
+         Edge flowers at left:4% and right:6% stay visible. */
+      /*.journey-section > .meet-float-flower:nth-child(3),
+      .journey-section > .meet-float-flower:nth-child(6){ display:none }
+      /* Trim remaining flowers so they don't crowd the card edges */
+      /*.meet-float-flower{ max-width:34px !important }
+    }
+
+    /* ── RSVP CTA block ─────────────────────────────────────────── */
+    /*.rsvp-cta{
+      position:relative;z-index:3;
+      display:flex;flex-direction:column;align-items:center;
+      padding:60px 20px 80px;text-align:center
+    }
+    .rsvp-title{
+      font-family:'Aboreto',sans-serif;font-size:clamp(44px,14vw,70px);
+      line-height:115.74%;color:var(--peach)
+    }
+    .rsvp-sub{
+      font-family:'Yaldevi',sans-serif;font-size:20px;
+      text-align:center;color:var(--peach);margin-top:4px
+    }
+    .cta-ring-btn.rsvp-ring .outer-ring{border-color:var(--peach)}
+    .cta-ring-btn.rsvp-ring .inner-dot{border-color:var(--peach)}
+
+    /* ═══════════════════════════════════════════════════════════════════
+       SECTION 3 — Light/nature bg — Things to know + Instagram
+    ═══════════════════════════════════════════════════════════════════ */
+    /*.s3{
+      position:relative;overflow:hidden
+    }
+    .s3-bg{
+      position:absolute;inset:0;
+      background:url(https://framerusercontent.com/images/2dFaPNHiZWIx3VvP26NqORM2vMY.png) center top / cover;
+      pointer-events:none
+    }
+    .things-section{
+      position:relative;z-index:3;
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+      padding:160px 30px 0;
+      text-align:center
+    }
+    .things-title{
+      font-family:'Aboreto',sans-serif;font-size:clamp(36px,11vw,58px);
+      color:var(--olive);
+      max-width:12ch;
+      margin:0 auto 14px
+    }
+    .things-desc{
+      font-family:'Yaldevi',sans-serif;font-size:18px;
+      color:var(--olive);max-width:540px;margin:0 auto 56px;line-height:1.6
+    }
+    .things-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      justify-items:center;
+      gap:60px 40px;
+      max-width:1100px;
+      margin:0 auto;
+      padding-bottom:100px;
+      align-items:start
+    }
+    .thing-card{
+      display:flex;flex-direction:column;align-items:center;
+      justify-content:flex-start;
+      width:min(100%,320px);
+      gap:16px;text-align:center;
+      min-width:0;
+      opacity:0;will-change:transform
+    }
+    a.thing-card{
+      color:inherit;
+      text-decoration:none
+    }
+    @media(max-width:900px){
+      .things-grid{ grid-template-columns:repeat(2,1fr); max-width:640px }
+    }
+    @media(max-width:540px){
+      .things-grid{ grid-template-columns:1fr; max-width:340px; gap:52px 0 }
+    }
+    .thing-icon{width:150px;height:150px;object-fit:contain}
+
+    /* QR card */
+    /*.qr-card{ gap:12px }
+    .qr-img-real{
+      width:176px;height:176px;
+      object-fit:contain;
+      border-radius:12px;
+      image-rendering:crisp-edges
+    }
+    .qr-pay-note{
+      font-family:'Yaldevi',sans-serif;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#8b2232
+    }
+
+    /* ── Gift Amount Modal ──────────────────────────────────────── */
+    /*.gift-overlay{
+      display:none;
+      position:fixed;inset:0;
+      background:rgba(14,10,4,0.78);
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
+      z-index:10000;
+      align-items:center;justify-content:center;
+      padding:20px
+    }
+    .gift-overlay.open{ display:flex }
+    .gift-modal{
+      background:#fffdf8;
+      border-radius:24px;
+      padding:40px 32px 36px;
+      width:min(100%,400px);
+      box-shadow:0 24px 80px rgba(0,0,0,0.35);
+      position:relative;
+      text-align:center;
+      animation:modalIn .35s cubic-bezier(0.16,1,0.3,1)
+    }
+    @keyframes modalIn{
+      from{ transform:translateY(32px) scale(0.96);opacity:0 }
+      to  { transform:translateY(0)    scale(1);   opacity:1 }
+    }
+    .gift-modal-close{
+      position:absolute;top:16px;right:18px;
+      background:none;border:none;cursor:pointer;
+      font-size:22px;line-height:1;color:#b8a898;
+      padding:4px 8px
+    }
+    .gift-modal-close:hover{ color:#5a3a2a }
+    .gift-modal-icon{
+      font-size:36px;margin-bottom:8px
+    }
+    .gift-modal-title{
+      font-family:'Aboreto',sans-serif;
+      font-size:22px;
+      color:#3a1a08;
+      margin-bottom:4px
+    }
+    .gift-modal-sub{
+      font-family:'Cormorant Upright',serif;
+      font-size:16px;
+      color:#9a7a60;
+      margin-bottom:28px
+    }
+    .gift-amount-wrap{
+      display:flex;
+      align-items:center;
+      border:1.5px solid #d8c9b0;
+      border-radius:12px;
+      overflow:hidden;
+      background:#fff;
+      margin-bottom:8px;
+      transition:border-color .2s
+    }
+    .gift-amount-wrap:focus-within{
+      border-color:#8b2232
+    }
+    .gift-amount-prefix{
+      font-family:'Cormorant',serif;
+      font-size:22px;
+      color:#5a3a2a;
+      padding:0 12px 0 16px;
+      user-select:none;
+      line-height:54px
+    }
+    .gift-amount-input{
+      flex:1;
+      border:none;outline:none;
+      font-family:'Cormorant',serif;
+      font-size:26px;
+      color:#2a1a08;
+      background:transparent;
+      padding:10px 16px 10px 0;
+      width:100%
+    }
+    .gift-amount-input::placeholder{ color:#d8c9b0 }
+    .gift-error{
+      font-family:'Yaldevi',sans-serif;
+      font-size:13px;
+      color:#c0392b;
+      min-height:20px;
+      margin-bottom:16px;
+      letter-spacing:.02em
+    }
+    .gift-submit{
+      width:100%;
+      padding:14px;
+      background:#8b2232;
+      color:#fff;
+      border:none;
+      border-radius:12px;
+      font-family:'Aboreto',sans-serif;
+      font-size:15px;
+      letter-spacing:.08em;
+      cursor:pointer;
+      transition:background .2s,transform .1s
+    }
+    .gift-submit:hover { background:#6e1a28 }
+    .gift-submit:active{ transform:scale(0.98) }
+    .gift-desktop-note{
+      display:none;
+      font-family:'Yaldevi',sans-serif;
+      font-size:13px;
+      color:#9a7a60;
+      margin-top:14px;
+      line-height:1.6
+    }
+    /* Placeholder — identical footprint to .qr-img-real so swapping causes zero layout shift */
+    /*.qr-container{
+      display:flex;
+      justify-content:center;
+      align-items:center
+    }
+    .qr-placeholder{
+      width:150px;height:150px;
+      background:#fff;
+      border:2px dashed #d8cfb0;
+      border-radius:12px;
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      gap:8px;
+      color:#b8aa82;
+      font-family:'Manrope',sans-serif;
+      font-size:10px;font-weight:700;
+      letter-spacing:.18em;text-transform:uppercase
+    }
+    .qr-placeholder svg{ opacity:.38 }
+    .qr-scan-label{
+      font-family:'Manrope',sans-serif;font-size:9px;font-weight:700;
+      letter-spacing:.08em;text-transform:uppercase;color:inherit
+    }
+
+    .thing-name{
+      font-family:'Aboreto',sans-serif;font-size:clamp(30px,9vw,44px);
+      color:var(--olive)
+    }
+    .thing-desc{
+      font-family:'Yaldevi',sans-serif;font-size:18px;
+      color:var(--olive);line-height:1.7
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       FOOTER — Full video background
+    ═══════════════════════════════════════════════════════════════════ */
+    .footer-video-section{
+      position:relative;
+      height:100vh;
+      min-height:100svh;
+      background:#130d0a;
+      overflow:hidden;
+      display:flex;align-items:center;justify-content:center
+    }
+    .bg-video{
+      position:absolute;top:0;left:0;
+      width:100%;height:100%;
+      object-fit:cover;
+      object-position:center center;
+      pointer-events:none;
+      transform:translateZ(0);
+      backface-visibility:hidden
+    }
+    .footer-overlay{
+      position:absolute;inset:0;
+      background:rgba(0,0,0,0.45);
+      pointer-events:none
+    }
+    .footer-content{
+      position:relative;z-index:3;
+      display:flex;flex-direction:column;align-items:center;
+      width:min(100%,580px);
+      margin:0 auto;
+      padding:60px 30px;text-align:center
+    }
+    .countdown-title{
+      font-family:'Cormorant Upright',serif;
+      font-size:clamp(38px,10vw,64px);
+      line-height:110%;
+      color:#fff;
+      max-width:14ch;
+      margin:0 auto 28px;
+      letter-spacing:.02em
+    }
+    .countdown-timer{
+      display:flex;align-items:flex-end;gap:6px;
+      font-family:'Cormorant Upright',serif;font-weight:600;
+      font-size:clamp(38px,12vw,56px);line-height:1em;
+      font-variant-numeric:tabular-nums;
+      white-space:nowrap;color:#fff;
+      margin-bottom:32px
+    }
+    .countdown-sub{
+      font-family:'Cormorant Upright',serif;font-size:19px;
+      color:rgba(255,255,255,.88);max-width:440px;margin:0 auto 48px;line-height:1.6
+    }
+    .copyright{
+      font-family:'Cormorant Upright',serif;font-size:16px;
+      color:rgba(255,255,255,.7)
+    }
+
+    @keyframes fade-rise{
+      from{ opacity:0; transform:translateY(30px) }
+      to  { opacity:1; transform:translateY(0)    }
+    }
+
+    /* ── Meet section floating flowers ─────────────────────────── */
+    .meet-section{ overflow:hidden }
+    @keyframes floatFlower{
+      0%  { transform:translateY(0);   opacity:0 }
+      15% { opacity:.85 }
+      85% { opacity:.7  }
+      100%{ transform:translateY(-220px); opacity:0 }
+    }
+    .meet-float-flower{
+      position:absolute;bottom:10%;
+      pointer-events:none;
+      animation:floatFlower 5s ease-in-out infinite;
+      will-change:transform,opacity
+    }
+
+    /* ── Fade-up scroll animation ───────────────────────────────── */
+    .fade-up{
+      opacity:0;
+      transform:translateY(40px);
+      transition:opacity .8s ease, transform .8s ease
+    }
+    .fade-up.show{
+      opacity:1;
+      transform:translateY(0)
+    }
+
+    /* ── Global bold boost ──────────────────────────────────────── */
+    .invite-blessing,.invite-sub,.invite-daughter,
+    .invite-couple-name,.invite-amp,.invite-bride-name{ font-weight:600 }
+    .event-name-txt{ font-weight:700 }
+    .event-date-txt,.event-venue-txt,.event-time-txt{ font-weight:600 }
+    .meet-label,.meet-title,.meet-bio{ font-weight:600 }
+    .things-title,.thing-name{ font-weight:700 }
+    .things-desc,.thing-desc{ font-weight:500 }
+    .countdown-title,.countdown-sub,.copyright{ font-weight:600 }
+    .loc-title{ font-weight:700 }
+    .loc-sub{ font-weight:600 }
+
+    /* ── Extra entrance animations ──────────────────────────────── */
+    @keyframes slide-up-fade{
+      from{ opacity:0; transform:translateY(50px) }
+      to  { opacity:1; transform:translateY(0)    }
+    }
+    @keyframes scale-in{
+      from{ opacity:0; transform:scale(.88) }
+      to  { opacity:1; transform:scale(1)   }
+    }
+    .photo-frame-wrap{
+      opacity:0;animation:scale-in 1.1s ease forwards .6s
+    }
+    .bismillah-gotu{
+      opacity:0;animation:slide-up-fade .8s ease forwards .1s
+    }
+    .invite-big{
+      opacity:0;animation:scale-in 1s ease forwards .2s
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       RESPONSIVE — from source breakpoints
+    ═══════════════════════════════════════════════════════════════════ */
+    @media(min-width:900px){
+      .hero-bg-photo{
+        --hero-focus-y:50%;
+        --hero-scale:1.08
+      }
+      .hero-names{ top:53% }
+    }
+    @media(min-width:810px){
+      .hero-name{font-size:80px;line-height:60px}
+      .events-wrap{max-width:720px;gap:40px 32px}
+      .arch-frame{height:400px}
+    }
+    @media(min-width:1200px){
+      .hero-bg-photo{
+        --hero-focus-y:50%;
+        --hero-scale:1.1
+      }
+      .hero-names{ top:54% }
+      .hero-name{font-size:100px;line-height:60px}
+      .events-wrap{max-width:800px}
+      .arch-frame{height:420px}
+    }
+
+    /* ── QR section: always centered ───────────────────────────────── */
+    .things-grid{
+      justify-content:center
+    }
+
+    /* ── 5th event card (Groom's Reception) — centered when alone ───── */
+    .event-card:last-child:nth-child(odd){
+      grid-column:1 / -1;
+      justify-self:center
+    }
+
+    /* ── 768px mobile breakpoint (Issue 6) ─────────────────────────── */
+    @media(max-width:768px){
+      .hero-stage,
+      .hero-section{ height:100vh }
+      .hero-name{ font-size:clamp(36px,10vw,56px) }
+      .hero-weds{ font-size:20px }
+      .petal-wrap{ width:min(35px,7vw) !important }
+      .things-grid{
+        grid-template-columns:1fr;
+        max-width:340px
+      }
+      .journey-section{ padding:60px 15px 100px }
+    }
+    @media(max-width:768px) and (min-width:541px){
+      .things-grid{ grid-template-columns:repeat(2,1fr); max-width:560px }
+    }
+
+    /* ── Performance: defer rendering of off-screen sections ──────── */
+    .s2,.s3{
+      content-visibility:auto;
+      contain-intrinsic-size:0 600px
+    }
+    /* Ensure petal container and fixed elements are GPU-composited */
+    .petal-container{ transform:translateZ(0) }
+
+    /* ── Mobile alignment fixes ───────────────────────────────────── */
+    @media(max-width:900px), (pointer:coarse){
+      .petal-wrap,
+      .petal-float,
+      .petal-spin{ will-change:auto }
+      .petal-float img,
+      .petal-spin img,
+      .petal{ filter:none !important }
+    }
+    @media(max-width:600px){
+      .hero-bg-photo{
+        --hero-focus-y:50%;
+        --hero-scale:1.08
+      }
+      #music-btn{
+        top:12px;left:10px;
+        width:40px;height:40px;
+        padding:9px
+      }
+      #buy-btn{
+        top:12px;right:6px;
+        gap:6px;
+        padding:5px 8px 5px 10px;
+        font-size:11px;
+        line-height:1
+      }
+      #buy-btn span.price{
+        padding:5px 8px;
+        font-size:11px
+      }
+      .hero-names{
+        padding:0 20px;
+        max-width:100%
+      }
+      .hero-name{
+        font-size:clamp(40px,11.5vw,60px);
+        line-height:.92
+      }
+      .hero-weds{
+        font-size:15px;
+        letter-spacing:.22em;
+        margin:10px 0 8px
+      }
+      .invite{
+        max-width:520px;
+        padding:0 16px 72px
+      }
+      .invite-blessing,
+      .invite-sub,
+      .invite-daughter,
+      .invite-sep{ font-size:20px }
+      .invite-couple-name,
+      .invite-bride-name{ line-height:1 }
+      .events-wrap{ gap:34px 0; max-width:340px }
+      .event-card{ gap:14px; max-width:320px }
+      .event-date-txt,
+      .event-venue-txt,
+      .event-time-txt{ font-size:18px }
+      .event-dress-txt{
+        font-size:11px;
+        max-width:260px
+      }
+      .journey-section{ padding:76px 16px 112px; gap:8px }
+      .env-title{ margin-bottom:40px; max-width:14ch }
+      .env-wrap{ width:min(100%,420px) }
+      .things-section{
+        padding:88px 20px 0;
+        max-width:420px
+      }
+      .things-desc{ margin-bottom:44px }
+      .things-grid{
+        width:100%;
+        gap:48px 0
+      }
+      .thing-card{ width:100%; max-width:320px }
+      .thing-icon{
+        width:124px;
+        height:124px
+      }
+      .qr-img-real{
+        width:164px;
+        height:164px
+      }
+      .thing-name{ font-size:clamp(28px,8vw,38px) }
+      .thing-desc{ font-size:17px }
+      .footer-content{
+        width:min(100%,420px);
+        padding:44px 20px 56px
+      }
+      .countdown-title{ margin-bottom:22px }
+      .countdown-sub{
+        font-size:17px;
+        margin-bottom:36px
+      }
+    }
+    @media(max-width:480px){
+      .hero-bg-photo{
+        --hero-focus-y:50%;
+        --hero-scale:1.08
+      }
+      /* Tighten hero "WEDS" spacing so it doesn't feel cramped */
+      .hero-weds{ font-size:14px; letter-spacing:0.22em }
+      /* Countdown numbers should shrink on tiny screens */
+      .countdown-timer{ font-size:clamp(26px,8vw,56px); gap:3px }
+      /* Event name text (e.g. "Reception (Bride's Side)") */
+      .event-name-txt{ font-size:21px }
+      /* Arch frame fits single column on small screens */
+      .arch-frame{ width:100%; max-width:100% }
+      /* Location CTA ring button — keep centered */
+      .location-cta{ padding:40px 20px 60px }
+      /* Invite big text — prevent overflow */
+      .invite-big{ letter-spacing:.03em }
+      /* Things section — more breathing room */
+      .things-section{ padding:80px 20px 0 }
+    }
+    @media(max-width:360px){
+      .hero-bg-photo{
+        --hero-focus-y:50%;
+        --hero-scale:1.08
+      }
+      .hero-name{ font-size:42px }
+      .hero-weds{ font-size:13px; letter-spacing:0.18em }
+      .events-wrap{ padding:0 4px 60px }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── AUDIO ─────────────────────────────────────────────────────── -->
+  <audio id="bgm" src="asset/bgm.mp3" loop preload="auto" autoplay></audio>
+
+  <!-- ── MUSIC TOGGLE ──────────────────────────────────────────────── -->
+  <button id="music-btn" aria-label="Toggle music" title="Toggle music">
+    <!-- pause bars: shown while playing (click to pause) -->
+    <svg id="icon-play"  viewBox="0 0 16 16" fill="#343434" style="display:none"><path d="M6 3.5A.5.5 0 016.5 3h1a.5.5 0 01.5.5v9a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-9zm4 0a.5.5 0 01.5-.5h1a.5.5 0 01.5.5v9a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-9z"/></svg>
+    <!-- play triangle: shown while paused (click to play) -->
+    <svg id="icon-pause" viewBox="0 0 16 16" fill="#343434"><path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 010 1.393z"/></svg>
+  </button>
+
+  <!-- ── BUY BUTTON ─────────────────────────────────────────────────── -->
+  <a id="buy-btn" href="#events" aria-label="View Events">
+    Events &nbsp;<span class="price">View</span>
+  </a>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 1 — HERO + INVITE + EVENTS
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="s1">
+  <div class="hero-stage hero-section">
+    <div class="s1-sky" aria-hidden="true"></div>
+
+    <!-- ══ LAYER 1 — Hero full-screen background ══════════════════ -->
+    <div class="hero-bg-photo" aria-hidden="true">
+      <img class="hero-image" src="asset/image1-desktop.jpg" srcset="asset/image1-mobile.jpg 1200w, asset/image1-desktop.jpg 1800w" sizes="100vw" fetchpriority="high" decoding="async" loading="eager" alt="">
+    </div>
+    <div class="hero-bg-overlay hero-overlay" aria-hidden="true"></div>
+
+    <!-- ══ LAYER 3 — Hero flowers ════════════════════════════════
+         ALL flowers have data-speed → JS parallax until RSVP section
+         Inner .petal-float = gentle bob  |  .petal-spin = rotate
+    ═══════════════════════════════════════════════════════════════ -->
+
+    <!-- BIG edge flowers -->
+    <div class="petal-wrap" data-speed="0.45" aria-hidden="true"
+         style="top:0%;left:0%;width:min(145px,30vw);--br:15deg;--fd:8s;--fdel:0s">
+      <div class="petal-float"><img src="images/flower2.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.35" aria-hidden="true"
+         style="top:0%;right:0%;width:min(135px,27vw);--br:-10deg;--fd:10s;--fdel:-1.5s">
+      <div class="petal-float"><img src="images/flower3.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.28" aria-hidden="true"
+         style="top:72%;right:0%;width:min(148px,29vw);--br:8deg;--fd:9s;--fdel:-3s">
+      <div class="petal-float"><img src="images/flower.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.52" aria-hidden="true"
+         style="top:78%;left:0%;width:min(140px,28vw);--br:-5deg;--fd:11s;--fdel:-2s">
+      <div class="petal-float"><img src="images/flower4.png" alt=""></div>
+    </div>
+
+    <!-- TINY edge flowers -->
+    <div class="petal-wrap" data-speed="0.50" aria-hidden="true"
+         style="top:18%;left:0%;width:min(38px,8vw);--br:20deg;--fd:7s;--fdel:-0.5s">
+      <div class="petal-float"><img src="images/flower.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.42" aria-hidden="true"
+         style="top:22%;right:1%;width:min(35px,7vw);--br:-14deg;--fd:9s;--fdel:-4s">
+      <div class="petal-float"><img src="images/flower4.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.38" aria-hidden="true"
+         style="top:48%;left:0%;width:min(40px,8vw);--br:25deg;--fd:8s;--fdel:-6s">
+      <div class="petal-float"><img src="images/flower2.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.46" aria-hidden="true"
+         style="top:60%;right:1%;width:min(36px,7vw);--br:-18deg;--fd:10s;--fdel:-2s">
+      <div class="petal-float"><img src="images/flower3.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.55" aria-hidden="true"
+         style="top:85%;left:1%;width:min(34px,7vw);--br:10deg;--fd:7.5s;--fdel:-1s">
+      <div class="petal-float"><img src="images/flower.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.32" aria-hidden="true"
+         style="top:90%;right:0%;width:min(42px,8vw);--br:-8deg;--fd:8.5s;--fdel:-5s">
+      <div class="petal-float"><img src="images/flower2.png" alt=""></div>
+    </div>
+
+    <!-- BIG spin flowers (interior, also scroll with parallax) -->
+    <div class="petal-wrap" data-speed="0.20" aria-hidden="true"
+         style="top:4%;left:18%;width:min(125px,25vw);--fd:14s;--fdel:0s">
+      <div class="petal-spin"><img src="images/flower.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.18" aria-hidden="true"
+         style="top:8%;right:16%;width:min(115px,23vw);--fd:12s;--fdel:-5s">
+      <div class="petal-spin"><img src="images/flower4.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.22" aria-hidden="true"
+         style="top:42%;right:20%;width:min(130px,26vw);--fd:16s;--fdel:-2s">
+      <div class="petal-spin"><img src="images/flower3.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.19" aria-hidden="true"
+         style="top:68%;left:16%;width:min(120px,24vw);--fd:13s;--fdel:-7s">
+      <div class="petal-spin"><img src="images/flower2.png" alt=""></div>
+    </div>
+
+    <!-- TINY spin flowers (interior) -->
+    <div class="petal-wrap" data-speed="0.25" aria-hidden="true"
+         style="top:16%;left:30%;width:min(38px,7vw);--fd:10s;--fdel:-3s">
+      <div class="petal-spin"><img src="images/flower2.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.30" aria-hidden="true"
+         style="top:28%;right:26%;width:min(35px,7vw);--fd:11s;--fdel:-1s">
+      <div class="petal-spin"><img src="images/flower4.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.24" aria-hidden="true"
+         style="top:36%;left:24%;width:min(40px,8vw);--fd:9s;--fdel:-6s">
+      <div class="petal-spin"><img src="images/flower.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.28" aria-hidden="true"
+         style="top:52%;right:24%;width:min(36px,7vw);--fd:12s;--fdel:-4s">
+      <div class="petal-spin"><img src="images/flower3.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.21" aria-hidden="true"
+         style="top:62%;left:22%;width:min(42px,8vw);--fd:15s;--fdel:-2.5s">
+      <div class="petal-spin"><img src="images/flower2.png" alt=""></div>
+    </div>
+    <div class="petal-wrap" data-speed="0.26" aria-hidden="true"
+         style="top:80%;right:20%;width:min(34px,7vw);--fd:10s;--fdel:-8s">
+      <div class="petal-spin"><img src="images/flower4.png" alt=""></div>
+    </div>
+
+    <!-- HERO NAMES -->
+    <div class="hero-names" role="heading" aria-level="1">
+      <h3 class="hero-name" id="name-l" aria-label="Shanshan">Shanshan</h3>
+      <p  class="hero-weds" id="name-w">WEDS</p>
+      <h3 class="hero-name" id="name-r" aria-label="Nada">Nada</h3>
+    </div>
+
+  </div><!-- /hero-stage -->
+
+  <div class="invite-section">
+    <!-- INVITE -->
+    <div class="invite">
+
+      <!-- Bismillah (Arabic) -->
+      <p class="bismillah-gotu">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْم</p>
+
+      <!-- Parents blessing — groom's family first -->
+      <p class="invite-blessing">With the heavenly blessings of</p>
+      <p class="invite-blessing" style="margin-top:4px">Mrs. Muneera &amp; Mr. Mansoor</p>
+      <p class="invite-sep">&amp;</p>
+      <p class="invite-blessing">Mrs. Fathima BS &amp; Mr. Khaleel TV</p>
+
+      <!-- Big INVITE -->
+      <p class="invite-big">INVITE</p>
+
+      <!-- You to join -->
+      <p class="invite-sub" style="margin-top:8px">You to join us in the wedding celebrations of</p>
+
+      <!-- Couple names — groom first -->
+      <p class="invite-couple-name" id="cn-l">Shanshan</p>
+      <p class="invite-amp">&amp;</p>
+      <p class="invite-bride-name" id="cn-r">Nada</p>
+
+      <!-- Son of first, Daughter of second -->
+      <p class="invite-daughter">Son of</p>
+      <p class="invite-blessing" style="margin-top:4px">Mrs. Muneera &amp; Mr. Mansoor</p>
+      <p class="invite-daughter" style="margin-top:16px">Daughter of</p>
+      <p class="invite-blessing" style="margin-top:4px">Mrs. Fathima BS &amp; Mr. Khaleel TV</p>
+      <p class="invite-blessing" style="margin-top:12px">On the following events</p>
+    </div>
+
+    <!-- EVENT CARDS (2) — Nikah + Reception -->
+    <div class="events-wrap" id="events">
+
+      <!-- Nikah -->
+      <div class="event-card" data-event>
+        <div class="arch-frame">
+          <img class="arch-photo" src="images/nikah.jpg" loading="lazy" alt="Nikah">
+          <img class="flower-overlay" src="images/flower3.png" loading="lazy" alt="">
+        </div>
+        <p class="event-name-txt">Nikah</p>
+        <div class="event-details">
+          <p class="event-date-txt">Saturday, April 18th 2026</p>
+          <p class="event-venue-txt">Hydross Masjid</p>
+          <p class="event-time-txt">After Asar</p>
+        </div>
+      </div>
+
+      <!-- Reception — Groom's Side -->
+      <div class="event-card" data-event>
+        <div class="arch-frame">
+          <img class="arch-photo" src="images/groom.jpeg" loading="lazy" alt="Reception">
+          <img class="flower-overlay" src="images/flower.png" loading="lazy" alt="">
+        </div>
+        <p class="event-name-txt">Reception</p>
+        <div class="event-details">
+          <p class="event-date-txt">Sunday, April 19th 2026</p>
+          <p class="event-venue-txt">Groom's Residence</p>
+          <p class="event-time-txt">After 12:00 PM</p>
+        </div>
+      </div>
+
+    </div><!-- /events-wrap -->
+
+    <!-- LOCATION CTA -->
+    <div class="location-cta">
+      <p class="loc-title">See the route</p>
+      <p class="loc-sub">Click to open the map</p>
+      <a class="cta-ring-btn" href="https://www.google.com/maps?q=11.99878,75.26469" target="_blank" rel="noopener" aria-label="Open map">
+        <div class="outer-ring"></div>
+        <div class="inner-dot"></div>
+      </a>
+    </div>
+  </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 2 — CINEMATIC JOURNEY — PHOTOS + ROAD SCENE
+  ════════════════════════════════════════════════════════════════ -->
+ <!-- <section class="s2 journey-section">
+    <div class="s2-bg" aria-hidden="true"></div>
+
+    <!-- Ambient floating petals -->
+    <!--<img class="meet-float-flower" src="images/flower2.png" style="left:4%;animation-delay:0s;width:42px"   aria-hidden="true" alt="">
+    <img class="meet-float-flower" src="images/flower3.png" style="left:20%;animation-delay:2.4s;width:30px" aria-hidden="true" alt="">
+    <img class="meet-float-flower" src="images/flower.png" style="right:6%;animation-delay:1.2s;width:38px" aria-hidden="true" alt="">
+    <img class="meet-float-flower" src="images/flower4.png" style="right:24%;animation-delay:3.5s;width:26px"aria-hidden="true" alt="">
+    <img class="meet-float-flower" src="images/flower2.png" style="left:50%;animation-delay:4.8s;width:22px" aria-hidden="true" alt="">
+
+    <!-- Inner content wrapper for max-width constraint -->
+    <!--<div class="journey-inner">
+
+    <!-- Section label -->
+    <!--<p class="env-label fade-up">Wedding Invitation</p>
+    <h2 class="env-title fade-up">A special delivery is on its way to you</h2>
+    
+
+    <!-- Envelope -->
+    <!--<div class="env-wrap fade-up" id="env-wrap" role="button" aria-label="Open invitation" tabindex="0">
+
+      <!-- Envelope body: grows from rect to square on open -->
+      <!--<div class="envelope" aria-hidden="true">
+        <div class="envelope-flap"></div>
+        <div class="seal"><img src="asset/seal.png" loading="lazy" alt="Invitation seal"></div>
+
+        <!-- Card hidden inside (translateY 100% down) — slides up when envelope opens -->
+        <!--<div class="env-card">
+          <img src="asset/image7.jpg" class="couple-photo" loading="lazy" alt="Nada and Shanshan">
+          <div class="env-card-inner">
+            <div class="env-divider"></div>
+            <p class="dua">അപ്പോ sett അല്ലേ</p>
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Hint -->
+    <!-- <p class="env-hint" aria-hidden="true">Tap to open</p> -->
+
+    <!--</div><!-- /journey-inner -->
+  <!--</section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 3 — LIGHT/NATURE BG — THINGS TO KNOW + INSTAGRAM
+  ════════════════════════════════════════════════════════════════ -->
+  <!--<section class="s3">
+    <div class="s3-bg" aria-hidden="true"></div>
+
+    <div class="things-section">
+      <h2 class="things-title" data-appear>Things to know</h2>
+      <p class="things-desc" data-appear>
+        To help you feel at ease and enjoy every moment of the celebrations,
+        we've gathered a few thoughtful details we'd love for you to know.
+      </p>
+
+      <div class="things-grid">
+
+        <!-- Hashtag -->
+        <!--<div class="thing-card" data-appear>
+          <img class="thing-icon" src="https://framerusercontent.com/images/5y8vl5sZQRnq3EHTA5uUoYOFwI.png" loading="lazy" alt="">
+          <p class="thing-name">Hashtag</p>
+          <p class="thing-desc">Tag your memories on social media with<br><strong>#MustaqjiShaadhi #shudhzkishaadhi</strong></p>
+        </div>
+
+        <!-- Photo/Video Upload QR -->
+        <!--<a class="thing-card qr-card" href="https://shadhamustaqinvitation.vercel.app/share-memories" target="_blank" rel="noopener" data-appear>
+          <img src="asset/qr-share-v2.png" class="qr-img-real" loading="lazy" alt="QR code to share memories">
+          <p class="thing-name">Share Memories</p>
+          <p class="thing-desc">Tap or scan to upload your photos &amp; videos from the celebrations and browse the shared gallery.</p>
+        </a>
+
+        <!-- Donation/Gift QR — Groom (am=1000 conditions the minimum in UPI app) -->
+        <!--<a class="thing-card qr-card" id="gift-pay-link" href="upi://pay?pa=8113044515@axl&pn=Mustaq&am=1000&cu=INR" data-appear aria-label="Open UPI app to gift the groom">
+          <img src="asset/groom_pay_qr.jpg" class="qr-img-real" loading="lazy" alt="QR code to gift the groom">
+          <p class="thing-name">Gift the Groom</p>
+          <p class="thing-desc">Tap on mobile to open any UPI app, or scan the QR code to send your gift.</p>
+          <p class="qr-pay-note">Tap to pay</p>
+        </a>
+
+      </div>
+    </div>
+
+  </section>-->
+
+  <!-- ════════════════════════════════════════════════════════════════
+       FOOTER — VIDEO BACKGROUND + COUNTDOWN
+  ════════════════════════════════════════════════════════════════ -->
+  <footer class="footer-video-section">
+    <!-- Full-bleed video background -->
+    <video id="footer-video" class="bg-video" autoplay muted loop playsinline webkit-playsinline preload="none" poster="images/video-poster.jpg">
+      <source src="images/video.mp4" type="video/mp4">
+    </video>
+    <!-- Dark overlay -->
+    <div class="footer-overlay" aria-hidden="true"></div>
+
+    <div class="footer-content">
+      <p class="countdown-title fade-up">The countdown begins</p>
+      <div class="countdown-timer fade-up" id="countdown" aria-live="polite" role="timer">
+        <span id="cd-d">00</span>:<span id="cd-h">00</span>:<span id="cd-m">00</span>:<span id="cd-s">00</span>
+      </div>
+      <p class="countdown-sub fade-up">
+        Our families are excited that you are able to join us in celebrating
+        what we hope will be one of the happiest days of our lives.
+      </p>
+      <p class="copyright fade-up">With ❤️ Shanshan &amp; Nada</p>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════════════════════════ -->
+  <script>
+  (() => {
+    'use strict';
+
+    const GIFT_UPI_LINK = 'upi://pay?pa=8113044515@axl&pn=Mustaq&am=1000&cu=INR';
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    const isNarrowViewport = window.matchMedia('(max-width: 900px)').matches;
+    const useLiteEffects = prefersReducedMotion || (hasCoarsePointer && isNarrowViewport);
+
+    function attemptPlay(mediaEl) {
+      if (!mediaEl) return Promise.reject(new Error('Missing media element'));
+      const playPromise = mediaEl.play();
+      return playPromise && typeof playPromise.then === 'function'
+        ? playPromise
+        : Promise.resolve();
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       1. SPRING EASING ENGINE
+       Ports Framer's spring physics to CSS linear() function.
+       Uses the same underdamped spring formula from motion.CFTJ5LAI.mjs
+    ───────────────────────────────────────────────────────────── */
+    function springLinear(bounce = 0.2, durationSec = 5.2, steps = 120) {
+      const damp  = 1 - bounce;                          // damping ratio
+      const omega = 2 * Math.PI / (durationSec * 1.2);  // natural freq
+      const beta  = damp * omega;                        // decay rate
+      const wd    = omega * Math.sqrt(1 - damp * damp);  // damped freq
+      const vals  = [];
+      for (let i = 0; i <= steps; i++) {
+        const t = (i / steps) * durationSec;
+        const v = 1 - Math.exp(-beta * t) * (Math.cos(wd * t) + (beta / wd) * Math.sin(wd * t));
+        vals.push(Math.min(1.05, Math.max(-0.05, v)).toFixed(4));
+      }
+      return `linear(${vals.join(',')})`;
+    }
+
+    // Pre-compute the two spring easings used in the live site
+    const SPRING_5_2  = springLinear(0.2, 5.2);   // lanterns + names
+    const SPRING_0_4  = springLinear(0.2, 0.4);   // event cards (fast)
+    const SPRING_2_0  = springLinear(0.15, 2.0);  // thing cards (medium)
+
+    /* ─────────────────────────────────────────────────────────────
+       2. WAAPI APPEAR ANIMATION
+       Matches Framer's data-framer-appear-id spring system exactly.
+    ───────────────────────────────────────────────────────────── */
+    function springAnimate(el, fromTransform, toTransform, opts) {
+      const { duration, easing, delay = 0, fromOpacity, toOpacity } = opts;
+      const keyframes = [];
+      const kf0 = { transform: fromTransform, offset: 0 };
+      const kf1 = { transform: toTransform,   offset: 1 };
+      if (fromOpacity !== undefined) { kf0.opacity = fromOpacity; kf1.opacity = toOpacity ?? 1; }
+      el.style.opacity = '1';  // reset so it's visible after animation
+      el.style.willChange = 'transform, opacity';
+      return el.animate([kf0, kf1], { duration: duration * 1000, easing, delay: delay * 1000, fill: 'forwards' });
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       3. HERO NAME ANIMATIONS  (fire on page load)
+    ───────────────────────────────────────────────────────────── */
+    window.addEventListener('DOMContentLoaded', () => {
+
+      // Names — spring in on page load
+      const nameL = document.getElementById('name-l');
+      const nameW = document.getElementById('name-w');
+      const nameR = document.getElementById('name-r');
+      if (!nameL || !nameW || !nameR) return;
+
+      nameL.style.opacity = '1';
+      nameW.style.opacity = '1';
+      nameR.style.opacity = '1';
+
+      if (useLiteEffects) {
+        [nameL, nameW, nameR].forEach((el, index) => {
+          el.animate(
+            [{ opacity: 0, transform: 'translateY(32px)' },
+             { opacity: 1, transform: 'translateY(0)'   }],
+            { duration: 700, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards', delay: index * 120 }
+          );
+        });
+        return;
+      }
+
+      springAnimate(nameL,
+        'translateY(400px) rotate(12deg)', 'translateY(0) rotate(0deg)',
+        { duration: 5.2, easing: SPRING_5_2, delay: 0 });
+      springAnimate(nameW,
+        'translateY(400px) rotate(15deg)', 'translateY(0) rotate(0deg)',
+        { duration: 5.2, easing: SPRING_5_2, delay: 0.15 });
+      springAnimate(nameR,
+        'translateY(400px) rotate(-10deg)', 'translateY(0) rotate(0deg)',
+        { duration: 5.2, easing: SPRING_5_2, delay: 0.3 });
+    });
+
+    /* ── Gift Amount Modal ───────────────────────────────────────── */
+    /*window.addEventListener('DOMContentLoaded', () => {
+      const giftCard    = document.getElementById('gift-pay-link');
+      const overlay     = document.getElementById('gift-overlay');
+      const closeBtn    = document.getElementById('gift-modal-close');
+      const input       = document.getElementById('gift-amount-input');
+      const errorEl     = document.getElementById('gift-error');
+      const submitBtn   = document.getElementById('gift-submit');
+      const desktopNote = document.getElementById('gift-desktop-note');
+      if (!giftCard || !overlay) return;
+
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || '');
+      const MIN = 1000;
+
+      function openModal() {
+        overlay.classList.add('open');
+        input.value = '';
+        errorEl.textContent = '';
+        desktopNote.style.display = isMobile ? 'none' : 'block';
+        setTimeout(() => input.focus(), 60);
+      }
+
+      function closeModal() {
+        overlay.classList.remove('open');
+      }
+
+      function validate() {
+        const val = parseInt(input.value, 10);
+        if (!input.value || isNaN(val)) {
+          errorEl.textContent = 'Please enter an amount.';
+          return false;
+        }
+        if (val < MIN) {
+          errorEl.textContent = 'Minimum gift amount is ₹1,000.';
+          return false;
+        }
+        errorEl.textContent = '';
+        return val;
+      }
+
+      function pay() {
+        const amount = validate();
+        if (!amount) return;
+        const upi = 'upi://pay?pa=8113044515@axl&pn=Mustaq&am=' + amount + '&cu=INR';
+        if (isMobile) {
+          window.location.href = upi;
+          setTimeout(closeModal, 800);
+        } else {
+          desktopNote.style.display = 'block';
+        }
+      }
+
+      /* open on card click / keyboard */
+      /*giftCard.addEventListener('click',   e => { e.preventDefault(); openModal(); });
+      giftCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); } });
+
+      /* close */
+      /*closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+      /* submit */
+      /*submitBtn.addEventListener('click', pay);
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') pay(); });
+
+      /* clear error on type */
+      /*input.addEventListener('input', () => { errorEl.textContent = ''; });
+    });
+
+    /* ─────────────────────────────────────────────────────────────
+       4. INTERSECTION OBSERVER — event cards + thing cards
+       Matches 1m1xn83 (opacity 0.001 → 1, spring 0.4s)
+    ───────────────────────────────────────────────────────────── */
+    const ioCards = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        el.animate(
+          [{ opacity: 0.001, transform: 'translateY(20px)' },
+           { opacity: 1,     transform: 'translateY(0)'    }],
+          { duration: 400, easing: SPRING_0_4, fill: 'forwards', delay: el.dataset.ioDelay || 0 }
+        );
+        el.style.opacity = '1';
+        ioCards.unobserve(el);
+      });
+    }, { threshold: 0.12 });
+
+    const ioThings = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        el.animate(
+          [{ opacity: 0, transform: 'translateY(40px)' },
+           { opacity: 1, transform: 'translateY(0)'   }],
+          { duration: 2000, easing: SPRING_2_0, fill: 'forwards' }
+        );
+        el.style.opacity = '1';
+        ioThings.unobserve(el);
+      });
+    }, { threshold: 0.2 });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-event]').forEach((el, i) => {
+        el.dataset.ioDelay = i * 80;
+        ioCards.observe(el);
+      });
+      document.querySelectorAll('[data-appear]').forEach(el => {
+        ioThings.observe(el);
+      });
+    });
+
+    /* ─────────────────────────────────────────────────────────────
+       4b. FADE-UP SCROLL OBSERVER
+       Adds .show class when .fade-up elements enter viewport
+    ───────────────────────────────────────────────────────────── */
+    const ioFadeUp = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          ioFadeUp.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-up').forEach(el => ioFadeUp.observe(el));
+    });
+
+    /* ─────────────────────────────────────────────────────────────
+       5. PHOTO CAROUSEL
+    ───────────────────────────────────────────────────────────── */
+    window.addEventListener('DOMContentLoaded', () => {
+      const track  = document.getElementById('ctrack');
+      const dots   = document.querySelectorAll('.cdot');
+      if (!track || !dots.length) return;
+      let current  = 0;
+      let timer;
+
+      function goTo(idx) {
+        current = (idx + dots.length) % dots.length;
+        track.style.transform = `translateX(${-current * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      dots.forEach(d => d.addEventListener('click', () => {
+        clearInterval(timer);
+        goTo(+d.dataset.idx);
+        startAuto();
+      }));
+
+      function startAuto() {
+        timer = setInterval(() => goTo(current + 1), 3800);
+      }
+      startAuto();
+
+      // Touch swipe
+      let sx = 0;
+      track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend',   e => {
+        const dx = e.changedTouches[0].clientX - sx;
+        if (Math.abs(dx) > 40) { clearInterval(timer); goTo(current + (dx < 0 ? 1 : -1)); startAuto(); }
+      });
+    });
+
+    /* ─────────────────────────────────────────────────────────────
+       6. COUNTDOWN TIMER  (first function day: April 16, 2026 12:00 AM IST)
+    ───────────────────────────────────────────────────────────── */
+    const WEDDING = new Date('2026-07-18T18:30:00Z'); // 12:00 AM IST = 6:30 PM UTC (previous day)
+
+    function pad(n) { return String(Math.floor(n)).padStart(2, '0'); }
+
+    function tick() {
+      const diff = WEDDING - Date.now();
+      if (diff <= 0) {
+        document.getElementById('countdown').textContent = '00:00:00:00';
+        return;
+      }
+      const d = diff / 86400000;
+      const h = (diff % 86400000) / 3600000;
+      const m = (diff % 3600000)  / 60000;
+      const s = (diff % 60000)    / 1000;
+      document.getElementById('cd-d').textContent = pad(d);
+      document.getElementById('cd-h').textContent = pad(h);
+      document.getElementById('cd-m').textContent = pad(m);
+      document.getElementById('cd-s').textContent = pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    /* ─────────────────────────────────────────────────────────────
+       7. FOOTER VIDEO — lazy-load and auto-play when near viewport
+    ───────────────────────────────────────────────────────────── */
+    window.addEventListener('DOMContentLoaded', () => {
+      const footerVideo = document.getElementById('footer-video');
+      const footerSection = document.querySelector('.footer-video-section');
+      if (!footerVideo || !footerSection) return;
+
+      let isLoaded = false;
+
+      footerVideo.muted = true;
+      footerVideo.defaultMuted = true;
+      footerVideo.playsInline = true;
+      footerVideo.setAttribute('playsinline', '');
+      footerVideo.setAttribute('webkit-playsinline', '');
+
+      function loadVideo() {
+        if (isLoaded) return;
+        isLoaded = true;
+        footerVideo.preload = 'auto';
+        footerVideo.load();
+      }
+
+      function playVideo() {
+        loadVideo();
+        attemptPlay(footerVideo).catch(() => {});
+      }
+
+      const footerVideoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            playVideo();
+            return;
+          }
+          footerVideo.pause();
+        });
+      }, { rootMargin: '280px 0px', threshold: 0.15 });
+
+      footerVideoObserver.observe(footerSection);
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          footerVideo.pause();
+          return;
+        }
+
+        const rect = footerSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 220 && rect.bottom > -220) {
+          playVideo();
+        }
+      });
+    });
+
+    /* ─────────────────────────────────────────────────────────────
+       8. LAYERED PARALLAX — flowers only
+       ─────────────────────────────────────────────────────────────
+       Background uses object-fit:contain — no translateY applied
+       (parallax would clip the contained portrait image at the edge).
+       Depth comes from the flower layers moving at different speeds.
+
+       Layer 1 — Background:  1.00× (natural scroll, no transform)
+       Layer 2 — Content:     1.00× (natural scroll)
+       Layer 3 — Flowers:     translateY(+speed × sy)
+                                 speed 0.50 → apparent 0.50×  (deep)
+                                 speed 0.35 → apparent 0.65×  (mid)
+                                 speed 0.20 → apparent 0.80×  (near)
+    ───────────────────────────────────────────────────────────── */
+    (function() {
+      let petals      = [];
+      let ticking     = false;
+      let footerEl    = null;
+      let heroEl      = null;
+      let s2El        = null;
+      let heroBgPhoto = null; // hero parallax target
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+      function getScrollY() {
+        return window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      }
+
+      function applyParallax() {
+        const rawSy       = getScrollY();
+        const heroH       = heroEl   ? heroEl.offsetHeight  : 0;
+        const footerLimit = footerEl ? footerEl.offsetTop   : Infinity;
+        const s2Start     = s2El     ? s2El.offsetTop       : heroH;
+        const fadeZone    = heroH * 0.25;
+
+        /* ── Hero image parallax (0.12× scroll) ──────────────────────
+           Moves the bg-photo wrapper DOWN slightly slower than the
+           page, creating depth behind the floating flower layers.
+           Capped at 8% of hero height so edges never show.
+           Skipped if user prefers reduced motion.
+        ─────────────────────────────────────────────────────────────── */
+        if (heroBgPhoto && !reducedMotion) {
+          const heroY = Math.min(rawSy * 0.12, heroH * 0.08);
+          heroBgPhoto.style.transform = `translate3d(0, ${heroY.toFixed(1)}px, 0)`;
+        }
+
+        petals.forEach(({ el, speed, isSpin }) => {
+          const limit = isSpin ? footerLimit : s2Start + heroH * 0.5;
+          const sy    = Math.min(rawSy, limit);
+          el.style.transform = `translate3d(0, ${(sy * speed).toFixed(2)}px, 0)`;
+
+          if (!isSpin) {
+            const fadeStart = s2Start - fadeZone;
+            const opacity   = rawSy <= fadeStart ? 1
+                            : rawSy >= s2Start   ? 0
+                            : 1 - (rawSy - fadeStart) / fadeZone;
+            el.style.opacity = opacity.toFixed(3);
+          }
+        });
+        ticking = false;
+      }
+
+      function requestParallax() {
+        if (!ticking) {
+          requestAnimationFrame(applyParallax);
+          ticking = true;
+        }
+      }
+
+      function setupParallax() {
+        footerEl    = document.querySelector('footer');
+        heroEl      = document.querySelector('.hero-stage');
+        s2El        = document.querySelector('.s2');
+        heroBgPhoto = document.querySelector('.hero-bg-photo');
+        petals = Array.from(document.querySelectorAll('.petal-wrap[data-speed]'))
+                      .map(el => ({
+                        el,
+                        speed:  parseFloat(el.dataset.speed),
+                        isSpin: !!el.querySelector('.petal-spin')
+                      }));
+
+        requestParallax();
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        setupParallax();
+      });
+
+      window.addEventListener('load', requestParallax, { once: true });
+      window.addEventListener('pageshow', requestParallax);
+      window.addEventListener('resize', requestParallax, { passive: true });
+      window.addEventListener('scroll', requestParallax, { passive: true });
+    })();
+
+    /* ─────────────────────────────────────────────────────────────
+       8b. ENVELOPE — click/tap to toggle open; hint hides on open
+    ───────────────────────────────────────────────────────────── */
+    /*(function() {
+      window.addEventListener('DOMContentLoaded', function() {
+        var env     = document.getElementById('env-wrap');
+        var hint    = document.querySelector('.env-hint');
+        var section = document.querySelector('.journey-section');
+        if (!env) return;
+
+        function setOpen(isOpen) {
+          if (hint)    hint.style.opacity = isOpen ? '0' : '';
+          if (section) section.classList.toggle('env-opened', isOpen);
+        }
+
+        function toggle() { setOpen(env.classList.toggle('open')); }
+
+        env.addEventListener('click', toggle);
+        env.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+        });
+        env.addEventListener('mouseenter', function() {
+          if (hint) hint.style.opacity = '0';
+          if (section) section.classList.add('env-opened');
+        });
+        env.addEventListener('mouseleave', function() {
+          if (!env.classList.contains('open')) {
+            if (hint)    hint.style.opacity = '';
+            if (section) section.classList.remove('env-opened');
+          }
+        });
+      });
+    })();
+
+    /* ─────────────────────────────────────────────────────────────
+       9. MUSIC — aggressive auto-play: tries immediately, on any
+          interaction, and on reload (localStorage flag).
+    ───────────────────────────────────────────────────────────── */
+    window.addEventListener('DOMContentLoaded', () => {
+      const bgm   = document.getElementById('bgm');
+      const btn   = document.getElementById('music-btn');
+      const play  = document.getElementById('icon-play');
+      const pause = document.getElementById('icon-pause');
+      if (!bgm || !btn || !play || !pause) return;
+      let playing = false;
+      let started = false;
+
+      function syncUI(state) {
+        playing = state;
+        // icon-play = pause bars → show when playing so user can pause
+        play.style.display  = state ? ''     : 'none';
+        // icon-pause = play triangle → show when paused so user can play
+        pause.style.display = state ? 'none' : '';
+      }
+
+      function startPlay() {
+        started = true;
+        attemptPlay(bgm).then(() => {
+          syncUI(true);
+          localStorage.setItem('weddingBgmPlayed', '1');
+        }).catch(() => {
+          syncUI(false);
+        });
+      }
+
+      function stopPlay() {
+        bgm.pause();
+        syncUI(false);
+      }
+
+      function bindUnlockEvents() {
+        const go = () => {
+          if (playing) return;
+          startPlay();
+        };
+
+        document.addEventListener('pointerdown', go, { once: true, passive: true });
+        document.addEventListener('touchstart', go, { once: true, passive: true });
+        document.addEventListener('click',      go, { once: true });
+        document.addEventListener('keydown',    go, { once: true });
+        document.addEventListener('scroll',     go, { once: true, passive: true });
+        window.addEventListener('focus',        go, { once: true });
+      }
+
+      /* 1. Try immediately (works if browser allows autoplay) */
+      bgm.volume = 0.85;
+      bgm.preload = 'auto';
+      bgm.load();
+      const autoplayPromise = attemptPlay(bgm);
+      if (autoplayPromise !== undefined) {
+        autoplayPromise.then(() => {
+          syncUI(true);
+          started = true;
+          localStorage.setItem('weddingBgmPlayed', '1');
+        }).catch(() => {
+          syncUI(false); // show play icon since music is not playing
+          bindUnlockEvents();
+        });
+      }
+
+      /* 3. Toggle button */
+      btn.addEventListener('click', () => {
+        playing ? stopPlay() : startPlay();
+      });
+
+      window.addEventListener('pageshow', () => {
+        if (!playing && (started || localStorage.getItem('weddingBgmPlayed') === '1')) {
+          startPlay();
+        }
+      });
+
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && !playing && localStorage.getItem('weddingBgmPlayed') === '1') {
+          startPlay();
+        }
+      });
+
+      /* 4. Sync UI if audio plays/pauses for any reason (e.g. autoplay attr) */
+      bgm.addEventListener('play',  () => syncUI(true));
+      bgm.addEventListener('pause', () => syncUI(false));
+    });
+
+  })();
+
+  /* ─────────────────────────────────────────────────────────────
+     FALLING PETALS
+     Continuously spawns flower petals (image2/3/4) that fall from
+     the top of the viewport to the bottom, position:fixed so the
+     effect persists while scrolling. Max 25 on screen at once.
+  ───────────────────────────────────────────────────────────── */
+  (function() {
+    const SRCS   = ['images/flower.png','images/flower2.png','images/flower3.png','images/flower4.png'];
+    const reducePetals = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobileDevice = window.matchMedia('(pointer: coarse)').matches && window.matchMedia('(max-width: 900px)').matches;
+    const MAX    = reducePetals ? 0 : (isMobileDevice ? 6 : 10);
+    let   active = 0;
+    let   container;
+
+    function spawnPetal() {
+      if (active >= MAX || !container) return;
+
+      const img  = document.createElement('img');
+      const sz   = 20 + Math.random() * 40;                       // 20–60 px
+      const dur  = 6  + Math.random() * 6;                        // 6–12 s
+      const del  = Math.random() * 1.5;                           // 0–1.5 s delay
+      const left = Math.random() * 98;                            // 0–98 vw
+      const drift= (Math.random() - 0.5) * 140;                   // ±70 px drift
+      const spin = (Math.random() > .5 ? 1 : -1) * (200 + Math.random() * 280); // rotation
+
+      img.src       = SRCS[Math.floor(Math.random() * SRCS.length)];
+      img.className = 'petal';
+      img.style.cssText = [
+        `left:${left}vw`,
+        `width:${sz}px`,
+        `--drift:${drift}px`,
+        `--spin:${spin}deg`,
+        `animation:petal-fall ${dur}s ${del}s ease-in forwards`,
+        `filter:drop-shadow(0 3px 8px rgba(0,0,0,.28))`
+      ].join(';');
+
+      active++;
+      img.addEventListener('animationend', () => {
+        img.remove();
+        active--;
+      }, { once: true });
+
+      container.appendChild(img);
+    }
+
+    let   boundary;   // bottom edge of .location-cta
+
+    /* Returns true while the user hasn't yet scrolled past .location-cta */
+    function inRange() {
+      if (!boundary) return true;
+      return boundary.getBoundingClientRect().bottom > 0;
+    }
+
+    /* Continuous spawn loop — only spawns while in range */
+    function scheduleNext() {
+      const gap = 700 + Math.random() * 900; // slower spawn = fewer simultaneous petals
+      setTimeout(() => {
+        if (inRange()) spawnPetal();
+        scheduleNext();
+      }, gap);
+    }
+
+    /* Scroll: update container visibility only — no burst spawn on scroll */
+    window.addEventListener('scroll', () => {
+      if (container) {
+        container.style.display = inRange() ? '' : 'none';
+      }
+    }, { passive: true });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      container = document.getElementById('petal-container');
+      boundary  = document.querySelector('.location-cta');
+      if (!container) return;
+      if (MAX === 0) {
+        container.style.display = 'none';
+        return;
+      }
+      // stagger initial petals more gently (5 instead of 10)
+      for (let i = 0; i < 5; i++) setTimeout(spawnPetal, i * 500);
+      scheduleNext();
+    });
+  })();
+
+  </script>
+
+  <!-- Gift Amount Modal -->
+  <!--<div class="gift-overlay" id="gift-overlay" role="dialog" aria-modal="true" aria-labelledby="gift-modal-title">
+    <div class="gift-modal">
+      <button class="gift-modal-close" id="gift-modal-close" aria-label="Close">&#215;</button>
+      <div class="gift-modal-icon">💛</div>
+      <p class="gift-modal-title" id="gift-modal-title">Gift the Groom</p>
+      <p class="gift-modal-sub">Shanshan &amp; Nada</p>
+      <div class="gift-amount-wrap">
+        <span class="gift-amount-prefix">₹</span>
+        <input class="gift-amount-input" id="gift-amount-input" type="number" min="1000" step="1" placeholder="Enter amount" inputmode="numeric" autocomplete="off">
+      </div>
+      <p class="gift-error" id="gift-error" aria-live="polite"></p>
+      <button class="gift-submit" id="gift-submit">Send Gift</button>
+      <p class="gift-desktop-note" id="gift-desktop-note">Open on your phone to pay via Google Pay or any UPI app, or scan the QR code on this page.</p>
+    </div>
+  </div>
+
+  <!-- Falling petals container — position:fixed, spans full viewport -->
+  <div class="petal-container" id="petal-container" aria-hidden="true"></div>
+
+</body>
+</html>
+
+
+
+
+
+
+
